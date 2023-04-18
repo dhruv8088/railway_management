@@ -34,9 +34,9 @@ class ScheduleSerializer(serializers.HyperlinkedModelSerializer):
 class Moves_on_Serializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Moves_on
-        fields = ['track','train']
+        fields = ['Track','Train']
 
 class FollowsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Follows
-        fields = ['schedule','train']
+        fields = ['Schedule','Train']

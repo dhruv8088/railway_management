@@ -34,19 +34,19 @@ class Station(models.Model):
 
 class Moves_on(models.Model):
     
-    track = models.ForeignKey(Tracks,on_delete = models.CASCADE,unique = True)
-    train = models.ForeignKey(Train,on_delete = models.CASCADE, unique = True)
+    Track = models.ForeignKey(Tracks,on_delete = models.CASCADE,unique = True)
+    Train = models.ForeignKey(Train,on_delete = models.CASCADE, unique = True)
 
     class Meta:
-        unique_together = (('track', 'train'),)
+        unique_together = (('Track', 'Train'),)
 
 class Follows(models.Model):
     
-    schedule = models.ForeignKey(Schedule,on_delete = models.CASCADE,unique = True)
-    train = models.ForeignKey(Train,on_delete = models.CASCADE, unique = True)
+    Schedule = models.ForeignKey(Schedule,on_delete = models.CASCADE,unique = True)
+    Train = models.ForeignKey(Train,on_delete = models.CASCADE, unique = True)
 
     class Meta:
-        unique_together = (('schedule', 'train'),)
+        unique_together = (('Schedule', 'Train'),)
     
 
 
