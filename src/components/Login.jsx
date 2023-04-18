@@ -1,9 +1,13 @@
 import React from 'react'
 import {useState} from 'react'
+import Trainlist from './Trainlist';
+import logo from '../assets/RailwayManagement_logo.png'
+import { Navigate } from 'react-router-dom';
+
 
 function Login() {
-    const USER_NAME='himanshu'
-    const PASSWORD='himanshu@18'
+    const USER_NAME='h'
+    const PASSWORD='hh'
     const [username, setUsername]=useState("");
     const [password, setPassword]=useState("");
     const [admin, setAdmin]=useState(false);
@@ -18,12 +22,8 @@ function Login() {
     }
   return (
       <>
-    <div className='flex flex-row justify-center items-center p-[10px] border-b-[2px] border-black'><h1 className='font-[pacifico] text-[32px]'>Railway Management System</h1></div>
-    <div className="flex flex-row gap-[5px] m-[10px] justify-center items-center ">
-      {admin && <div className="flex flex-[2]">
-         Himanshu
-      </div>}
-      <div className="flex flex-[8] flex-col gap-[20px] justify-center items-center">
+       <div className="flex flex-row gap-[5px] m-[10px] justify-center items-center ">
+      {admin?(<Navigate replace to='/admin/trainlist'></Navigate>):(<div className="flex flex-[8] flex-col gap-[20px] justify-center items-center">
         <div className=' flex flex-col justify-center border-black border-[1px] items-center w-[50%] '>
         <div className='flex flex-row justify-center items-center p-[10px] border-b-[1px]'><h1 className='font-[pacifico] text-[32px]'>Login Form</h1></div>
          <form className='flex flex-col gap-[10px] w-[320px] p-[10px]'>
@@ -40,7 +40,7 @@ function Login() {
            Submit
          </button>
         </div>
-      </div>
+      </div>)}
     </div>
     </>
   )

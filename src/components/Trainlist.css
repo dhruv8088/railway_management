@@ -1,0 +1,19 @@
+.box{
+    height: 70vh;
+    width: 130vh;
+    background-color: rgb(252, 202, 135);
+    margin-left: 17%;
+    margin-top: 10%;
+    align-items: center;
+    border-radius: 2%;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 50px 50px 10px 10px #888;
+}
+
+h1{
+    font-size: 29px;
+  
+}
+
