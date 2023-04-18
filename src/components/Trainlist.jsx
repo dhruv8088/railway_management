@@ -7,33 +7,33 @@ const Trainlist = () =>{
     const trains=[
         {
             'key':1,
-            'trainName':"Malwa Express",
-            'trainNo':'12344',
-            'trainType':'Passenger'
+            'T_Name':"Malwa Express",
+            'T_ID':'12344',
+            'T_type':'Passenger'
         },
         {
             'key':2,
-            'trainName':"Punjab Mail",
-            'trainNo':'12357',
-            'trainType':'Luxury'
+            'T_Name':"Punjab Mail",
+            'T_ID':'12357',
+            'T_type':'Luxury'
         },
         {
             'key':3,
-            'trainName':"Patalkot Express",
-            'trainNo':'12317',
-            'trainType':'Passenger'
+            'T_Name':"Patalkot Express",
+            'T_ID':'12317',
+            'T_type':'Passenger'
         },
         {
             'key':4,
-            'trainName':"Rajdhani Express",
-            'trainNo':'12847',
-            'trainType':'Luxury'
+            'T_Name':"Rajdhani Express",
+            'T_ID':'12847',
+            'T_type':'Luxury'
         },
         {
             'key':5,
-            'trainName':"Shatabdi Express",
-            'trainNo':'11947',
-            'trainType':'Luxury'
+            'T_Name':"Shatabdi Express",
+            'T_ID':'11947',
+            'T_type':'Luxury'
         }
     ]
   return (
@@ -56,10 +56,10 @@ const Trainlist = () =>{
         {trains.map((train)=>(
             <div key={train.key} className='flex gap-[5px] w-full justify-stretch border-b-2'>
             <span className='flex flex-[2] justify-center text-[22px] items-center'>{train.key}</span>
-            <span className='flex flex-[2] justify-center text-[22px] items-center'>{train.trainName}</span>
-            <span className='flex flex-[2] justify-center text-[22px] items-center'>{train.trainNo}</span>
-            <span className='flex flex-[2] justify-center text-[22px] items-center'>{train.trainType}</span>
-            <Link href='#' className='flex p-[5px] justify-center items-center bg-[#FAFAFA]'><img src={arrow} height="20px" width="20px" alt='arrow'/></Link>
+            <span className='flex flex-[2] justify-center text-[22px] items-center'>{train.T_Name}</span>
+            <span className='flex flex-[2] justify-center text-[22px] items-center'>{train.T_ID}</span>
+            <span className='flex flex-[2] justify-center text-[22px] items-center'>{train.T_type}</span>
+            <Link to={`/admin/updatedata/${train.T_ID}`} className='flex p-[5px] justify-center items-center bg-[#FAFAFA]'><img src={arrow} height="20px" width="20px" alt='arrow'/></Link>
         </div>
         ))}
         </div>

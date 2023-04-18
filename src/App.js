@@ -9,6 +9,7 @@ import Booking from './components/Booking_Details'
 import Trainlist from './components/Trainlist'
 import './components/Trainlist.css';
 import FeedTrain from './components/FeedTrain';
+import UpdateTrain from './components/updatetrain';
 
 function App() {
  
@@ -23,6 +24,7 @@ function App() {
         <Route path='/booked_ticket' element={<Booking/>}/>
         <Route path='/admin/trainlist' element={<Trainlist/>}/>
         <Route path='/admin/feeddata' element={<FeedTrain/>}/>
+        <Route path='/admin/updatedata/:T_ID' element={<UpdateTrain/>}/>
       </Routes>
     </Router>
     </>
