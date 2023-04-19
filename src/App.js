@@ -11,6 +11,8 @@ import './components/Trainlist.css';
 import FeedTrain from './components/FeedTrain';
 import Trains from './components/Trains'
 import Coverpg from './components/Coverpg';
+import UpdateTrain from './components/updatetrain';
+
 function App() {
  
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route path='/admin/trainlist/' element={<Trainlist/>}/>
         <Route path='/admin/feeddata' element={<FeedTrain/>}/>
         <Route path='/trainlist' element={<Trains/>}/>
+        <Route path='/admin/updatedata/:T_ID' element={<UpdateTrain/>}/>
       </Routes>
     </Router>
     </>
