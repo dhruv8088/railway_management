@@ -9,7 +9,8 @@ import Booking from './components/Booking_Details'
 import Trainlist from './components/Trainlist'
 import './components/Trainlist.css';
 import FeedTrain from './components/FeedTrain';
-
+import Trains from './components/Trains'
+import Coverpg from './components/Coverpg';
 function App() {
  
   return (
@@ -18,11 +19,13 @@ function App() {
     <Router>
       <Routes>
         <Route path='/admin/login' element={<Login/>}/>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/trains' element={<Form/>}/>
-        <Route path='/booked_ticket' element={<Booking/>}/>
-        <Route path='/admin/trainlist' element={<Trainlist/>}/>
+        <Route path='/123' element={<Home/>}/>
+        <Route path='/' element={<Coverpg/>}/>
+        <Route path='/trains/:T_ID' element={<Form/>}/>
+        <Route path='/booked_ticket/:x' element={<Booking/>}/>
+        <Route path='/admin/trainlist/' element={<Trainlist/>}/>
         <Route path='/admin/feeddata' element={<FeedTrain/>}/>
+        <Route path='/trainlist' element={<Trains/>}/>
       </Routes>
     </Router>
     </>

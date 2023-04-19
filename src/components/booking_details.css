@@ -1,21 +1,18 @@
 .header {
     /* existing styles */
-    background-image: url('Indian_Railway_Logo.png'); /* Add the image */
+    background-image: url('../assets/logo.svg'); /* Add the image */
     background-size: contain; /* Scale the image to fit the container */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-position: center; /* Position the image in the center of the container */
     opacity: 100%;
+    color: #b4b4b1cc;
   }
-  .header {
-    background-color: #4b3702cc; /* fallback color in case image not loaded */
-    /* other existing styles */
-}
 
 .ticket {
     margin: auto;
     margin-top: 50px;
     width: 900px; /* Increased the width of the ticket */
-    height: 400px; /* Increased the height of the ticket */
+    height: 830px; /* Increased the height of the ticket */
     background-color: #F7F9F9; /* Changed the background color */
     border: 2px solid #7d430e; /* Changed the border color and width */
   }
@@ -36,7 +33,7 @@
     justify-content: space-between;
     padding: 0 20px; /* Increased the padding */
     border-bottom: 2px solid #7d430e;  /* Changed the border color and width */
-    background-color: #7d430e; /* Changed the background color */
+    background-color: #efcaa4; /* Changed the background color */
   }
   
   .logo {

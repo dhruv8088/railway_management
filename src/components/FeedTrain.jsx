@@ -13,10 +13,11 @@ const FeedTrain = () => {
     const [destination,setDestination]=useState('')
     const [startT,setStartT]=useState('')
     const [endT,setEndT]=useState('')
-    const [stationId,setStationId]=useState(0)
+    const [stationId,setStationId]=useState('')
     const [stationName,setStationName]=useState('')
     const [place,setPlace]=useState('')
     let x=midStations;
+
 
 
     useEffect(() => {
@@ -30,9 +31,6 @@ const FeedTrain = () => {
             "T_Name":trainName,
             "T_type":trainType
         }).then(res=>{if(res.status===200)console.log("Success")}).catch((e)=>{console.log(e)})
-        setTrainName('')
-        setTrackNum(0)
-        setTrainType('')
 
     }
     const handleTrack=async()=>{
@@ -40,7 +38,10 @@ const FeedTrain = () => {
             "Track_no":trackNum,
             "length":trackLen
         }).then(res=>{if(res.status===200)console.log("Success")}).catch((e)=>{console.log(e)})
-        setTrackLen(0)
+        await axios.post('http://127.0.0.1:8000/management/system/movesOn/',{
+            "Train":`http://127.0.0.1:8000/management/system/train/${trainNum}/`,
+            "Track":`http://127.0.0.1:8000/management/system/tracks/${trackNum}/`
+        }).then(res=>{if(res.status===200)console.log("Success")}).catch((e)=>{console.log(e)})
         
     }
     const handleSchedule=async()=>{
@@ -50,28 +51,41 @@ const FeedTrain = () => {
            "Destination": destination,
            "Start_time": startT,
            "End_time": endT,
+        }).then((req,res)=>{if(res.status===200)console.log("Success",req)}).catch((e)=>{console.log(e)})
+        await axios.post('http://127.0.0.1:8000/management/system/follows/',{
+            "Train":`http://127.0.0.1:8000/management/system/train/${trainNum}/`,
+            "Schedule":`http://127.0.0.1:8000/management/system/schedule/${scheduleId}/`
         }).then(res=>{if(res.status===200)console.log("Success")}).catch((e)=>{console.log(e)})
-        setScheduleId(0)
-        setSource('')
-        setDestination('')
-        setStartT('')
-        setEndT('')
+        
+        setScheduleId(Math.floor(Math.random()*(999-100+1)+100))
+
         
     }
 
     const handleStation=async()=>{
-        setMidStations(x-=1);
+        setMidStations(x--);
+        
         await axios.post('http://127.0.0.1:8000/management/system/station/',{
             "S_id":stationId,
             "S_Name":stationName,
             "Place":place,
-            "track":trackNum
-        })
-        setStationId(0)
+            "track": `http://127.0.0.1:8000/management/system/tracks/${trackNum}/`
+        }).then((res,req)=>{console.log(res,req)}).catch((e)=>{console.log(e)});
+        setStationId('')
         setStationName('')
-        setPlace('')
-        if(midStations===0){
+            setPlace('')
+        if(x===0){
             setTrackNum(0);
+            
+            
+            setTrainName('')
+            setTrackNum(0)
+            setTrainType('')
+            setSource('')
+            setDestination('')
+            setStartT('')
+            setEndT('')
+            setTrackLen(0)
         }
     }
   return (
@@ -108,7 +122,7 @@ const FeedTrain = () => {
         {midStations && <div className='m-[5px] flex flex-col gap-[5px] border-[1px] m-[15px] h-[70%] w-[80%]'>
         <div className='flex m-[20px] justify-start text-[26px] text-[#7D7D7D]'>Add New Station</div>
         <div className='m-[20px] grid grid-cols-3 content-evenly justify-evenly gap-x-40'>
-        <div className='grid grid-rows-2 h-[70px] '><h1 className='font-[Poppins] text-[20px]'>Station Id</h1><input readonly="readonly" className='p-[5px]' value={stationId} placeholder="Station Id"/></div>
+        <div className='grid grid-rows-2 h-[70px] '><h1 className='font-[Poppins] text-[20px]'>Station Id</h1><input className='p-[5px]' value={stationId} onChange={(event)=>{setStationId(event.target.value)}} placeholder="Station Id"/></div>
         <div className='grid grid-rows-2 h-[70px] '><h1 className='font-[Poppins] text-[20px]'>Station Name</h1><input className='p-[5px]' value={stationName} onChange={(event)=>{setStationName(event.target.value)}} placeholder="Station Name"/></div>
         <div className='grid grid-rows-2 h-[70px] '><h1 className='font-[Poppins] text-[20px]'>Place</h1><input className='p-[5px]' value={place} onChange={(event)=>{setPlace(event.target.value)}} placeholder="Place"/></div>
         </div>

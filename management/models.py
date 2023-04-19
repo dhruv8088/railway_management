@@ -10,6 +10,8 @@ class Passengers(models.Model):
     P_ID = models.IntegerField(primary_key = True)
     P_Name = models.CharField(max_length = 30)
     Gender = models.CharField(max_length = 1)
+    Email = models.CharField(max_length = 30)
+    AadharNo = models.CharField(max_length = 30)
     Age = models.IntegerField()
     Seat_number = models.IntegerField()
     Coaches = models.CharField(max_length = 2)
@@ -47,7 +49,7 @@ class Follows(models.Model):
 
     class Meta:
         unique_together = (('Schedule', 'Train'),)
-    
+
 
 
 

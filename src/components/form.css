@@ -29,10 +29,11 @@
     border-radius: 5px;
 }
 
-.sub{
+.but{
     background-color: slateblue;
     color: white;
     padding: 15px 15px;
+    
     border:none;
     border-radius: 4px;
     width: 15%;
@@ -41,6 +42,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.sub:hover{
+.but:hover{
     background-color: rgb(56, 19, 204);
 }

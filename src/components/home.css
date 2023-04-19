@@ -94,7 +94,7 @@ main{
     padding: 0 10px;
     text-transform: uppercase;
 }
-.form-submit-btn input{
+button{
     display: block; width: 600px; 
     margin-top: 10px;
     font-size: 20px;
@@ -106,8 +106,8 @@ main{
     background: rgba(28, 188, 68, 0.8);
     font-weight: bold;
 }
-.form-submit-btn input:hover{
-    background: rgba(0, 255, 64, 0.8);
+button:hover{
+    background: rgba(110, 67, 250, 0.8);
     color: black;
     font-weight: bold;
 }

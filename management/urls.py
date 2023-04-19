@@ -11,7 +11,6 @@ router.register(r'tracks' ,TracksViewSet)
 router.register(r'schedule' ,ScheduleViewSet)
 router.register(r'movesOn' ,Moves_on_ViewSet)
 router.register(r'follows' ,FollowsViewSet)
-
 urlpatterns = [
     path('',include(router.urls))
 ]
